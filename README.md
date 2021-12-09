@@ -6,6 +6,13 @@
 
 This playbook installs and configures most of the software I use on my Mac for web and software development. Some things in macOS are slightly difficult to automate, so I still have a few manual installation steps, but at least it's all documented here.
 
+## Quick Setup
+
+To run:
+```bash
+curl -fsSL https://raw.githubusercontent.com/Mahoney/machine-setup/master/install | bash
+```
+
 ## Installation
 
   1. Ensure Apple's command line tools are installed (`xcode-select --install` to launch the installer).

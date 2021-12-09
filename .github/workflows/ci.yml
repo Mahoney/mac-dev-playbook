@@ -50,21 +50,14 @@ jobs:
           sudo rm -rf /Applications/Firefox.app
           sudo rm -rf /Applications/Google\ Chrome.app
 
-      - name: Install test dependencies.
-        run: sudo pip3 install ansible
-
       - name: Set up the test environment.
-        run: |
-          cp tests/ansible.cfg ./ansible.cfg
-          cp tests/inventory ./inventory
-          cp tests/config.yml ./config.yml
-          ansible-galaxy install -r requirements.yml
+        run: ./prepare.sh
 
       - name: Test the playbook's syntax.
         run: ansible-playbook main.yml --syntax-check
 
       - name: Test the playbook.
-        run: ansible-playbook main.yml
+        run: ./run.sh
         env:
           ANSIBLE_FORCE_COLOR: '1'
 
