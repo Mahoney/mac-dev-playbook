@@ -16,8 +16,7 @@ main() {
 
   export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 
-  sudo pip3 install --upgrade pip
-  python3 -m pip install --user libyaml
+  pip3 install --upgrade pip
   python3 -m pip install --user ansible
 }
 
