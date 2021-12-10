@@ -12,6 +12,8 @@ main() {
   echo "Setting up your mac using $git_repo"
   echo "==========================================="
 
+  export PATH="$HOME/Library/Python/3.8/bin:$PATH"
+
   ./clone.sh "$git_repo" "$install_dir"
   cd "$install_dir"
   ./prepare.sh

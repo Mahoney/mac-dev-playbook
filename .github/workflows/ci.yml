@@ -33,11 +33,9 @@ jobs:
 
   integration:
     name: Integration
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os:
-          - macos-10.15
+    runs-on: macos-11
+    env:
+      PATH: "$HOME/Library/Python/3.8/bin:$PATH"
 
     steps:
       - name: Check out the codebase.
