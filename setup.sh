@@ -46,7 +46,7 @@ installXcodeCliTools() {
     installXcodeCliTools
   elif [[ "$result" -eq 1 && "$install_output" == *"already installed"* ]]; then
     # All good! Away we go
-    echo "Installed XCode Command Line Tools"
+    echo "XCode Command Line Tools are installed"
     return 0
   else
     echo "$install_output" >&2
