@@ -33,7 +33,7 @@ main() {
   export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 
   pip3 install --user --upgrade pip
-  python3 -m pip install --user ansible
+  sudo python3 -m pip install --user ansible
 
   ansible-galaxy install -r requirements.yml
   ansible-playbook -i ./hosts "$role.yml"
