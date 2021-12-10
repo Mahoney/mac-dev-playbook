@@ -4,9 +4,8 @@ set -euo pipefail
 IFS=$'\n\t'
 
 main() {
-  local role="${1:-personal}"
-  local git_repo="${2:-https://Mahoney@github.com/Mahoney/mac-dev-playbook.git}"
-  local install_dir="${3:-~/.mac_up}"
+  local git_repo="${1:-https://Mahoney@github.com/Mahoney/mac-dev-playbook.git}"
+  local install_dir="${2:-$HOME/.mac_up}"
 
   echo "==========================================="
   echo "Setting up your mac using $git_repo"
