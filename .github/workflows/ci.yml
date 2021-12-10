@@ -34,29 +34,11 @@ jobs:
   integration:
     name: Integration
     runs-on: macos-11
-    env:
-      PATH: "$HOME/Library/Python/3.8/bin:$PATH"
 
     steps:
-      - name: Check out the codebase.
-        uses: actions/checkout@v2
-
-      - name: Uninstall GitHub Actions' built-in Homebrew.
-        run: tests/uninstall-homebrew.sh
-
-      - name: Uninstall GitHub Actions' built-in browser installs.
-        run: |
-          sudo rm -rf /Applications/Firefox.app
-          sudo rm -rf /Applications/Google\ Chrome.app
-
-      - name: Set up the test environment.
-        run: ./prepare.sh
-
-      - name: Test the playbook's syntax.
-        run: ansible-playbook main.yml --syntax-check
 
       - name: Test the playbook.
-        run: ./run.sh
+        run: ./setup.sh
         env:
           ANSIBLE_FORCE_COLOR: '1'
 
