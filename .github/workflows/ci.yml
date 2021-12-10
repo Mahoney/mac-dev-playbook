@@ -38,7 +38,7 @@ jobs:
     steps:
 
       - name: Test the playbook.
-        run: curl -fsSL https://raw.githubusercontent.com/Mahoney/machine-setup/master/install | bash
+        run: curl -fsSL https://raw.githubusercontent.com/Mahoney/mac-dev-playbook/master/setup.sh | bash
         env:
           ANSIBLE_FORCE_COLOR: '1'
 

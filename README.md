@@ -10,7 +10,7 @@ This playbook installs and configures most of the software I use on my Mac for w
 
 To run:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Mahoney/machine-setup/master/install | bash
+curl -fsSL https://raw.githubusercontent.com/Mahoney/mac-dev-playbook/master/setup.sh | bash
 ```
 
 ## Installation
