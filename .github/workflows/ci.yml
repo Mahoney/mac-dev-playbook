@@ -43,6 +43,7 @@ jobs:
           ANSIBLE_FORCE_COLOR: '1'
 
       - name: Idempotence check.
+        working-directory: ~/.mac_up
         run: |
           idempotence=$(mktemp)
           ansible-playbook main.yml | tee -a ${idempotence}
