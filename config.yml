@@ -73,7 +73,7 @@ homebrew_cask_apps:
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
- - { id: 417375580, name: "BetterSnapTool" }
+  - {id: 417375580, name: "BetterSnapTool"}
 mas_upgrade_all_apps: true
 mas_email: ""
 mas_password: ""
