@@ -36,7 +36,7 @@ main() {
 
   ansible-galaxy install -r requirements.yml
 
-  ANSIBLE_CONFIG=~/.macup/ansible.cfg ansible-playbook -i ~/.macup/inventory ~/.macup/main.yml -K
+  ANSIBLE_CONFIG="$install_dir/ansible.cfg" ansible-playbook -i "$install_dir/inventory" "$install_dir/main.yml" -K
 
   echo "Setup done"
 }
