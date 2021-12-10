@@ -15,7 +15,7 @@ main() {
   fi
 
   pip3 install --user --upgrade pip
-  python3 -m pip install --user ansible
+  sudo python3 -m pip install --user ansible
 }
 
 main "$@"
