@@ -1,0 +1,81 @@
+---
+configure_dock: true
+dockitems_remove:
+ - TV
+ - Podcasts
+ - 'App Store'
+dockitems_persist:
+ - name: "Sublime Text"
+   path: "/Applications/Sublime Text.app/"
+   pos: 5
+
+configure_dotfiles: false
+
+homebrew_installed_packages:
+ - bash
+ - bash-completion@2
+ - bat
+ - binutils
+ - coreutils
+ - curl
+ - dnsmasq
+ - fswatch
+ - git
+ - gradle
+ - gradle-completion
+ - graphviz
+ - httpie
+ - hub
+ - jq
+ - lastpass-cli
+ - mas
+ - maven
+ - maven-completion
+ - mkcert
+ - ncurses
+ - nghttp2
+ - pass
+ - postgresql
+ - rbenv
+ - readline
+ - rename
+ - sbt
+ - shellcheck
+ - telnet
+ - tree
+ - unzip
+ - vault
+ - vim
+ - watch
+ - wget
+ - gdubw/gng/gng
+ - hashicorp/tap/terraform
+ - heroku/brew/heroku
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+ - discord
+ - docker
+ - firefox
+ - google-chrome
+ - jetbrains-toolbox
+ - kindle
+ - lastpass
+ - monitorcontrol
+ - postman
+ - slack
+ - temurin
+ - virtualbox
+ - visualvm
+ - xquartz
+ - zoom
+
+
+# See `geerlingguy.mas` role documentation for usage instructions.
+mas_installed_apps:
+ - { id: 417375580, name: "BetterSnapTool" }
+mas_upgrade_all_apps: true
+mas_email: ""
+mas_password: ""
+
+osx_script: "~/.osx --no-restart"
