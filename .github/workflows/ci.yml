@@ -38,7 +38,7 @@ jobs:
     steps:
 
       - name: Test the playbook.
-        run: ./setup.sh
+        run: curl -fsSL https://raw.githubusercontent.com/Mahoney/machine-setup/master/install | bash
         env:
           ANSIBLE_FORCE_COLOR: '1'
 
