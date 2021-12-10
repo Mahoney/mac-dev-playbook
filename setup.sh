@@ -4,7 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 main() {
-  local git_repo="${1:-https://Mahoney@github.com/Mahoney/mac-dev-playbook.git}"
+  local git_repo="${1:-https://github.com/Mahoney/mac-dev-playbook.git}"
   local install_dir="${2:-$HOME/.mac_up}"
 
   echo "==========================================="
@@ -46,7 +46,7 @@ installXcodeCliTools() {
     installXcodeCliTools
   elif [[ "$result" -eq 1 && "$install_output" == *"already installed"* ]]; then
     # All good! Away we go
-    exit 0
+    echo "Installed XCode Command Line Tools"
   else
     echo "$install_output" >&2
     exit "$result"
