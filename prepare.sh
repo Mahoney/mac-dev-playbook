@@ -14,8 +14,8 @@ main() {
     exit "$result"
   fi
 
-  pip3 install --user --upgrade pip
-  sudo python3 -m pip install --user ansible
+  sudo pip3 install --upgrade pip
+  sudo pip3 install ansible
 }
 
 main "$@"

@@ -32,11 +32,10 @@ main() {
   fi
   export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 
-  pip3 install --user --upgrade pip
-  sudo python3 -m pip install --user ansible
+  sudo pip3 install --upgrade pip
+  sudo pip3 install ansible
 
   ansible-galaxy install -r requirements.yml
-  ansible-playbook -i ./hosts "$role.yml"
 
   ANSIBLE_CONFIG=~/.macup/ansible.cfg ansible-playbook -i ~/.macup/inventory ~/.macup/main.yml -K
 
