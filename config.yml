@@ -22,7 +22,6 @@ homebrew_installed_packages:
   - fswatch
   - git
   - gradle
-  - gradle-completion
   - graphviz
   - httpie
   - hub
@@ -64,6 +63,7 @@ homebrew_cask_apps:
   - monitorcontrol
   - postman
   - slack
+  - spotify
   - temurin
   - virtualbox
   - visualvm
