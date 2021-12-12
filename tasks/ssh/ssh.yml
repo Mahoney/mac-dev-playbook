@@ -1,21 +1,15 @@
 ---
 
 - name: Ensure presence of .ssh
-  file: state=directory recurse=yes path={{home_directory}}/.ssh
+  file: state=directory recurse=yes path={{ home_directory }}/.ssh
 
 - name: Copy in .ssh/config
-  copy: src=files/ssh_config dest={{home_directory}}/.ssh/config
+  copy: src=files/ssh_config dest={{ home_directory }}/.ssh/config
 
 - name: Create SSH Key
   openssh_keypair:
-    path: "{{home_directory}}/.ssh/id_rsa"
-    comment: "{{email}}"
+    path: "{{ home_directory }}/.ssh/id_rsa"
+    comment: "{{ email }}"
   notify:
     - Add ssh passphrase
     - Setup ssh-agent
-
-- name: Add ssh passphrase
-  command: ssh-keygen -p -f "{{home_directory}}/.ssh/id_rsa"
-
-- name: Setup ssh-agent
-  shell: eval "$(ssh-agent -s)" && ssh-add -K "{{home_directory}}/.ssh/id_rsa"

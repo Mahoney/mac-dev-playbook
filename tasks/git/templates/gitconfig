@@ -1,6 +1,6 @@
 [user]
 	name = Robert Elliot
-	email = {{email}}
+	email = {{ email }}
 
 [core]
 	autocrlf = input
@@ -15,7 +15,7 @@
 	rebasem = !git fetch --prune && git pull --rebase origin main
 
 [hub]
-    host = {{github_host}}
+    host = {{ github_host }}
 
 [pull]
     rebase = false
