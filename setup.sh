@@ -17,7 +17,7 @@ main() {
   installXcodeCliTools
   export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 
-  if [ -f "$install_dir" ]; then
+  if [ -e "$install_dir" ]; then
     cd "$install_dir"
     git pull
   else
