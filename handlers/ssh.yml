@@ -1,3 +1,5 @@
+---
+
 - name: Add ssh passphrase
   command: ssh-keygen -p -f "{{ home_directory }}/.ssh/id_rsa"
 
