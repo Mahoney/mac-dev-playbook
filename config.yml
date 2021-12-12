@@ -52,6 +52,7 @@ homebrew_installed_packages:
   - vim
   - watch
   - wget
+  - zsh-completions
   - gdubw/gng/gng
   - hashicorp/tap/terraform
   - heroku/brew/heroku
