@@ -1,0 +1,14 @@
+# IntelliJ project files 
+*.iml
+*.iws
+*.ipr
+.idea/
+!.idea/runConfigurations
+!.idea/runConfigurations/*
+!.idea/externalDependencies.xml
+
+# OS
+.DS_Store
+
+# Personal
+tmp/

@@ -1,4 +1,8 @@
 ---
+email: rob@lidalia.org.uk
+github_host: github.com
+github_project: Mahoney
+
 configure_dock: true
 dockitems_remove:
   - TV
@@ -78,4 +82,8 @@ mas_upgrade_all_apps: true
 mas_email: ""
 mas_password: ""
 
-osx_script: "~/.osx --no-restart"
+macos_script: "~/.macos --no-restart"
+
+oh_my_zsh_theme: agnoster
+oh_my_zsh_plugins:
+  - git

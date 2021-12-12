@@ -1,0 +1,16 @@
+autoload -Uz compinit
+compinit
+
+GIT_PS1_SHOWCOLORHINTS=true
+GIT_PS1_SHOWUPSTREAM=auto
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWSTASHSTATE=true
+
+source ~/.git-prompt.sh
+
+setopt PROMPT_SUBST ; PS1='%~$(__git_ps1 " (%s)")%(?..%F{red}[%?] )\$ '
+
+alias ll='ls -lAh'
+
+export JAVA_OPTS=-Dapple.awt.UIElement=true

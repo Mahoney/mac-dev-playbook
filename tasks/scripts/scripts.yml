@@ -1,0 +1,12 @@
+---
+
+- name: Ensure presence of local bin
+  file: state=directory recurse=yes path=/usr/local/bin
+
+- name: Copy in scripts
+  copy:
+    src: tasks/scripts/files
+    dest: "/usr/local/bin"
+    owner: "root"
+    group: "admin"
+    mode: '0775'

@@ -1,0 +1,8 @@
+---
+# getting my dotfile configuration
+
+- name: Copy in zprofile
+  template: src=files/dotfiles/zprofile dest={{home_directory}}/.zprofile
+
+- name: Copy in zshrc
+  template: src=files/dotfiles/zshrc dest={{home_directory}}/.zshrc

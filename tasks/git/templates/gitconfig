@@ -1,0 +1,24 @@
+[user]
+	name = Robert Elliot
+	email = {{email}}
+
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+
+[alias]
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep "^[[:lower:]]"
+	hub-pr = !sh -c 'hub pull-request $0 $@'
+	up = !git fetch --prune && git checkout main && git pull && git branch --merged | grep -v main | xargs -r git branch -d
+	rebasem = !git fetch --prune && git pull --rebase origin main
+
+[hub]
+    host = {{github_host}}
+
+[pull]
+    rebase = false
+
+[init]
+    defaultBranch = main
