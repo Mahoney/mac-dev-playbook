@@ -70,11 +70,18 @@ homebrew_cask_apps:
   - slack
   - spotify
   - temurin
-  - virtualbox
+#  - virtualbox # no can haz on apple silicon
   - visualvm
   - xquartz
   - zoom
 
+
+# See `geerlingguy.mas` role documentation for usage instructions.
+mas_installed_apps:
+  - {id: 417375580, name: "BetterSnapTool"}
+mas_upgrade_all_apps: true
+mas_email: ""
+mas_password: ""
 
 macos_script: "~/.macos --no-restart"
 
