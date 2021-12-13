@@ -2,7 +2,7 @@
 # getting my dotfile configuration
 
 - name: Copy in zprofile
-  template: src=tasks/zsh/files/zprofile dest={{ home_directory }}/.zprofile
+  copy: src=tasks/zsh/files/zprofile dest={{ home_directory }}/.zprofile
 
 - name: Copy in zshrc
-  template: src=tasks/zsh/files/zshrc dest={{ home_directory }}/.zshrc
+  copy: src=tasks/zsh/files/zshrc dest={{ home_directory }}/.zshrc
