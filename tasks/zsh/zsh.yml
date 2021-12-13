@@ -47,4 +47,4 @@
 - name: Add JAVA_OPTS
   lineinfile:
     dest: "{{ home_directory }}/.zshrc"
-    line: "export JAVA_OPTS="$JAVA_OPTS -Dapple.awt.UIElement=true"'
+    line: 'export JAVA_OPTS="$JAVA_OPTS -Dapple.awt.UIElement=true"'
