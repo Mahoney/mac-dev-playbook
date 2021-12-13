@@ -39,6 +39,8 @@
     - role: geerlingguy.mac.dock
       when: configure_dock
       tags: ['dock']
+    - role: Comcast.sdkman
+    - role: markosamuli.nvm
 
   tasks:
     - name: Run configured post-provision ansible task files.

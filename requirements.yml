@@ -2,6 +2,8 @@
 roles:
   - name: elliotweiser.osx-command-line-tools
   - name: geerlingguy.dotfiles
+  - name: Comcast.sdkman
+  - name: markosamuli.nvm
 
 collections:
   - name: geerlingguy.mac

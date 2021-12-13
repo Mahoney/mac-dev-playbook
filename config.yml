@@ -86,6 +86,10 @@ mas_password: ""
 
 macos_script: "~/.macos --no-restart"
 
-oh_my_zsh_theme: agnoster
-oh_my_zsh_plugins:
-  - git
+sdkman_update: true
+sdkman_auto_answer: true
+sdkman_selfupdate_enable: true
+
+nvm_shell_init: true
+nvm_shell_profile_scripts:
+  - .zshrc
