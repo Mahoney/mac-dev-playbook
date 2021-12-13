@@ -2,10 +2,10 @@
 # getting my dotfile configuration
 
 - name: Load brew in .zprofile
-  create: true
+  create: yes
   lineinfile:
     dest: "{{ home_directory }}/.zprofile"
-    regexp: "brew shellenv"
+    search_string: 'eval "$(/opt/homebrew/bin/brew shellenv)"'
     line: 'eval "$(/opt/homebrew/bin/brew shellenv)"'
 
 - name: Initialise zsh completion in .zprofile
@@ -17,7 +17,7 @@
     fi
 
 - name: Initialise compinit in .zshrc
-  create: true
+  create: yes
   path: "{{ home_directory }}/.zshrc"
   block: |
     autoload -Uz compinit
