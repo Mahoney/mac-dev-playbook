@@ -4,6 +4,13 @@
   vars_files:
     - default.config.yml
 
+  handlers:
+    - name: Add ssh passphrase
+      command: ssh-keygen -p -f "{{ home_directory }}/.ssh/id_rsa"
+
+    - name: Setup ssh-agent
+      shell: eval "$(ssh-agent -s)" && ssh-add -K "{{ home_directory }}/.ssh/id_rsa"
+
   pre_tasks:
     - name: Include playbook configuration.
       include_vars: "{{ item }}"
