@@ -1,8 +1,10 @@
 ---
 
 - name: Copy in macos
-  copy: src=tasks/macos/macos dest={{ home_directory }}/.macos
-  mode: '0700'
+  copy:
+    src: tasks/macos/macos
+    dest: {{ home_directory }}/.macos
+    mode: '0700'
 
 # TODO: Use sudo once .macos can be run via root with no user interaction.
 - name: Run .macos dotfiles.
