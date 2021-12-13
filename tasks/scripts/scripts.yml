@@ -4,8 +4,9 @@
   file: state=directory recurse=yes path=/usr/local/bin
 
 - name: Copy in scripts
+  become: true
   copy:
-    src: tasks/scripts/files
+    src: tasks/scripts/files/
     dest: "/usr/local/bin"
     owner: "root"
     group: "admin"
