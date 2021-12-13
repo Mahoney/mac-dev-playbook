@@ -4,7 +4,7 @@
   file: state=directory recurse=yes path={{ home_directory }}/.ssh
 
 - name: Copy in .ssh/config
-  copy: src=files/ssh_config dest={{ home_directory }}/.ssh/config
+  copy: src=tasks/ssh/config dest={{ home_directory }}/.ssh/config
 
 - name: Create SSH Key
   openssh_keypair:

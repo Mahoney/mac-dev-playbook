@@ -5,7 +5,7 @@
   template: src=tasks/git/templates/gitconfig dest={{ home_directory }}/.gitconfig
 
 - name: Copy in global git ignore
-  copy: src=files/dotfiles/gitignore_global dest={{ home_directory }}/.gitignore_global
+  copy: src=tasks/git/files/gitignore_global dest={{ home_directory }}/.gitignore_global
 
 - name: Copy in gitcloneenv
   template: src=tasks/git/templates/gitcloneenv dest={{ home_directory }}/.gitcloneenv
