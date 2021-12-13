@@ -33,9 +33,9 @@
       GIT_PS1_SHOWSTASHSTATE=true
 
       source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
-      setopt PROMPT_SUBST ; PS1='%~$(__git_ps1 " (%s)")%(?..%F{red}[%?] )\$ '
+      setopt PROMPT_SUBST ; PS1='%~$(__git_ps1 " (%s)")%(?..%F{red}[%?] )%f\$ '
     else
-      setopt PROMPT_SUBST ; PS1='%~%(?..%F{red}[%?] )\$ '
+      setopt PROMPT_SUBST ; PS1='%~%(?..%F{red}[%?] )%f\$ '
     fi
 
 - name: Add ll alias
