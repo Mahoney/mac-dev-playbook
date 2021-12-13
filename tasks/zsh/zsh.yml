@@ -19,7 +19,7 @@
         FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
       fi
 
-- name: Initialise compinit in .zshrc
+- name: Initialise .zshrc
   blockinfile:
     path: "{{ home_directory }}/.zshrc"
     create: yes
@@ -28,11 +28,7 @@
       autoload -Uz compinit
       compinit
 
-- name: Initialise git prompt in .zshrc
-  blockinfile:
-    path: "{{ home_directory }}/.zshrc"
-    block: |
-      if type brew &>/dev/null && -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"; then
+      if type brew &>/dev/null && [ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]; then
         GIT_PS1_SHOWCOLORHINTS=true
         GIT_PS1_SHOWUPSTREAM=auto
         GIT_PS1_SHOWDIRTYSTATE=true
@@ -44,13 +40,7 @@
       else
         setopt PROMPT_SUBST ; PS1='%~%(?..%F{red}[%?] )%f\$ '
       fi
-
-- name: Add ll alias
-  lineinfile:
-    dest: "{{ home_directory }}/.zshrc"
-    line: "alias ll='ls -lAh'"
-
-- name: Add JAVA_OPTS
-  lineinfile:
-    dest: "{{ home_directory }}/.zshrc"
-    line: 'export JAVA_OPTS="$JAVA_OPTS -Dapple.awt.UIElement=true"'
+      
+      alias ll='ls -lAh'
+      
+      export JAVA_OPTS="$JAVA_OPTS -Dapple.awt.UIElement=true"
