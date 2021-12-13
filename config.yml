@@ -3,6 +3,9 @@ email: rob@lidalia.org.uk
 github_host: github.com
 github_project: Mahoney
 
+home_directory: "{{ lookup('env','HOME') }}"
+user: "{{ lookup('env','USER') }}"
+
 configure_dock: true
 dockitems_remove:
   - TV
