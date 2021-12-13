@@ -2,41 +2,48 @@
 # getting my dotfile configuration
 
 - name: Load brew in .zprofile
-  create: yes
   lineinfile:
     dest: "{{ home_directory }}/.zprofile"
+    create: yes
+    insertbefore: BOF
     line: 'eval "$(/opt/homebrew/bin/brew shellenv)"'
 
 - name: Initialise zsh completion in .zprofile
-  path: "{{ home_directory }}/.zprofile"
-  block: |
-    if type brew &>/dev/null
-    then
-      FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-    fi
+  blockinfile:
+    path: "{{ home_directory }}/.zprofile"
+    create: yes
+    insertafter: 'brew shellenv'
+    block: |
+      if type brew &>/dev/null
+      then
+        FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+      fi
 
 - name: Initialise compinit in .zshrc
-  create: yes
-  path: "{{ home_directory }}/.zshrc"
-  block: |
-    autoload -Uz compinit
-    compinit
+  blockinfile:
+    path: "{{ home_directory }}/.zshrc"
+    create: yes
+    insertbefore: BOF
+    block: |
+      autoload -Uz compinit
+      compinit
 
 - name: Initialise git prompt in .zshrc
-  path: "{{ home_directory }}/.zshrc"
-  block: |
-    if type brew &>/dev/null && -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"; then
-      GIT_PS1_SHOWCOLORHINTS=true
-      GIT_PS1_SHOWUPSTREAM=auto
-      GIT_PS1_SHOWDIRTYSTATE=true
-      GIT_PS1_SHOWUNTRACKEDFILES=true
-      GIT_PS1_SHOWSTASHSTATE=true
-
-      source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
-      setopt PROMPT_SUBST ; PS1='%~$(__git_ps1 " (%s)")%(?..%F{red}[%?] )%f\$ '
-    else
-      setopt PROMPT_SUBST ; PS1='%~%(?..%F{red}[%?] )%f\$ '
-    fi
+  blockinfile:
+    path: "{{ home_directory }}/.zshrc"
+    block: |
+      if type brew &>/dev/null && -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"; then
+        GIT_PS1_SHOWCOLORHINTS=true
+        GIT_PS1_SHOWUPSTREAM=auto
+        GIT_PS1_SHOWDIRTYSTATE=true
+        GIT_PS1_SHOWUNTRACKEDFILES=true
+        GIT_PS1_SHOWSTASHSTATE=true
+  
+        source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+        setopt PROMPT_SUBST ; PS1='%~$(__git_ps1 " (%s)")%(?..%F{red}[%?] )%f\$ '
+      else
+        setopt PROMPT_SUBST ; PS1='%~%(?..%F{red}[%?] )%f\$ '
+      fi
 
 - name: Add ll alias
   lineinfile:
