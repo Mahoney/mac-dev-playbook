@@ -7,7 +7,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 
-source ~/.git-prompt.sh
+source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
 
 setopt PROMPT_SUBST ; PS1='%~$(__git_ps1 " (%s)")%(?..%F{red}[%?] )\$ '
 

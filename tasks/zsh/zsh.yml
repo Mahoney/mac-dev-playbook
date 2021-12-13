@@ -1,8 +1,50 @@
 ---
 # getting my dotfile configuration
 
-- name: Copy in zprofile
-  copy: src=tasks/zsh/files/zprofile dest={{ home_directory }}/.zprofile
+- name: Load brew in .zprofile
+  create: true
+  lineinfile:
+    dest: "{{ home_directory }}/.zprofile"
+    regexp: "brew shellenv"
+    line: 'eval "$(/opt/homebrew/bin/brew shellenv)"'
 
-- name: Copy in zshrc
-  copy: src=tasks/zsh/files/zshrc dest={{ home_directory }}/.zshrc
+- name: Initialise zsh completion in .zprofile
+  path: "{{ home_directory }}/.zprofile"
+  block: |
+    if type brew &>/dev/null
+    then
+      FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+    fi
+
+- name: Initialise compinit in .zshrc
+  create: true
+  path: "{{ home_directory }}/.zshrc"
+  block: |
+    autoload -Uz compinit
+    compinit
+
+- name: Initialise git prompt in .zshrc
+  path: "{{ home_directory }}/.zshrc"
+  block: |
+    if type brew &>/dev/null && -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"; then
+      GIT_PS1_SHOWCOLORHINTS=true
+      GIT_PS1_SHOWUPSTREAM=auto
+      GIT_PS1_SHOWDIRTYSTATE=true
+      GIT_PS1_SHOWUNTRACKEDFILES=true
+      GIT_PS1_SHOWSTASHSTATE=true
+
+      source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+      setopt PROMPT_SUBST ; PS1='%~$(__git_ps1 " (%s)")%(?..%F{red}[%?] )\$ '
+    else
+      setopt PROMPT_SUBST ; PS1='%~%(?..%F{red}[%?] )\$ '
+    fi
+
+- name: Add ll alias
+  lineinfile:
+    dest: "{{ home_directory }}/.zshrc"
+    line: "alias ll='ls -lAh'"
+
+- name: Add JAVA_OPTS
+  lineinfile:
+    dest: "{{ home_directory }}/.zshrc"
+    line: "export JAVA_OPTS="$JAVA_OPTS -Dapple.awt.UIElement=true"'
