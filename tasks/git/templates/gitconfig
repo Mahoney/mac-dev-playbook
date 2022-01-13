@@ -11,7 +11,7 @@
 	unignore = update-index --no-assume-unchanged
 	ignored = !git ls-files -v | grep "^[[:lower:]]"
 	hub-pr = !sh -c 'hub pull-request $0 $@'
-	up = !git fetch --prune && git checkout main && git pull && git branch --merged | grep -v main | xargs -r git branch -d
+	up = !(set -euo pipefail && git fetch --prune && git checkout "${1:-main}" && git pull && (git branch --merged | grep -v "$(git rev-parse --abbrev-ref HEAD)" || [[ $? == 1 ]] | grep -v -E '(master|main|dev)' || [[ $? == 1 ]] | xargs -r git branch -d)) && :
 	rebasem = !git fetch --prune && git pull --rebase origin main
 
 [hub]
